@@ -48,11 +48,15 @@ public class Playlist {
 			musiquePlaying=listMusique.get(0);
 	}
 	
-	public void afficherMusique() {
+	public void afficherToutesMusique() {
 		for (Musique musique : listMusique) {
 			System.out.println(musique);
 		}
 	}
+	public void afficherMusique() {
+		System.out.println(musiquePlaying);
+	}
+	
 	private int rechercheMusique(Musique musique) {
 		for (int i=0;i<listMusique.size();i++) {
 			if (listMusique.get(i).equals(musique))
