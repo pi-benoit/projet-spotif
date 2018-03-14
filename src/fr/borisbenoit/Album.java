@@ -7,7 +7,7 @@ public class Album {
 	private String nom;
 	private List<Musique> musique;
 
-	private void addMusique(Musique mus) {
+	public void addMusique(Musique mus) {
 		
 	}
 

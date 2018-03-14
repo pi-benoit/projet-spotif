@@ -12,10 +12,11 @@ public class Musique {
 		super();
 		this.nom = nom;
 		this.album = album;
+		this.addToAlbum(album);
 	}
 
 	private void addToAlbum(Album album) {
-//		this.album.addMusique(this);
+		this.album.addMusique(this);
 	}
 
 	public void addToPlaylist(Playlist playlist) {
