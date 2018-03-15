@@ -12,17 +12,16 @@ public class Menu {
 	private int choix = 0;
 
 	public Menu() {
-		
+
 		affichageMenu();
 
 	}
 
-
 	public void affichageMenu() {
 		menu = String.format(
-				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les musiques de la playlist ",
+				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist ",
 				listPlaylist.get(0).getMusiquePlaying());
-		
+
 		System.out.println(menu);
 		choix = scan.nextInt();
 		switch (choix) {
@@ -52,41 +51,42 @@ public class Menu {
 			System.out.println(musique);
 		}
 		affichageMenu();
-		
+
 	}
+
 	private void afficherMusiques() {
 
 		listPlaylist.get(0).getMusiquePlaying();
-		
-		 affichageMenu(); 
-		
+
+		affichageMenu();
+
 	}
 
 	private void rejouerChanson() {
 		listPlaylist.get(0).rejouerMusique();
 
-		 affichageMenu(); 
-		
+		affichageMenu();
+
 	}
 
 	private void chansonPrecedente() {
 
 		listPlaylist.get(0).previousMusique();
-		 affichageMenu(); 
-		
+		affichageMenu();
+
 	}
 
 	private void chansonSuivante() {
 		listPlaylist.get(0).nextMusique();
-		 affichageMenu(); 
-		
+		affichageMenu();
+
 	}
 
 	private void quitter() {
 		System.exit(0);
-		
+
 	}
-	
+
 	public static void addPlaylist(Playlist pl) {
 		listPlaylist.add(pl);
 	}

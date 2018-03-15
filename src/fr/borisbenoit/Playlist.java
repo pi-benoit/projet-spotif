@@ -64,7 +64,7 @@ public class Playlist {
 			initMusique();
 
 		if (rechercheMusique(musiquePlaying).hasPrevious()) {
-			this.musiquePlaying = rechercheMusique(musiquePlaying).previous();
+			rechercheMusique(musiquePlaying).previous();
 		}
 		else
 			this.musiquePlaying = listMusique.getLast();
