@@ -7,7 +7,7 @@ public class PlaylistByBenoit extends Playlist {
 		Menu.addPlaylist(this);
 	}
 
-	public int rechercheIndexMusique(String musique) {
+	private int rechercheIndexMusique(String musique) {
 		int index = -1;
 		for(Musique val : this.listMusique) {
 			if (val.getNom().equals(musique)) {
@@ -16,5 +16,21 @@ public class PlaylistByBenoit extends Playlist {
 		}
 		return index;
 	}
+
+	public void nextMusique() {
+		if (musiquePlaying == null)
+			initMusique();
+
+		if (rechercheIndexMusique(musiquePlaying.getNom()) <= this.listMusique.size() ) {
+// @todo
+//			this.musiquePlaying = musiquePlaying.getNom();
+		} else {
+// @todo
+//			this.musiquePlaying = listMusique.getFirst();
+		}
+
+	}
+
+// @todo previousMusique()
 
 }
