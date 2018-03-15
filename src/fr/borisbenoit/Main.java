@@ -24,7 +24,8 @@ public class Main {
 		pl.nextMusique();
 		System.out.println(pl.getMusiquePlaying());
 		
-
+		Menu men=new Menu();
+		men.afficherListMusique();
 	}
 
 }

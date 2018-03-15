@@ -12,15 +12,17 @@ public class Menu {
 	private int choix = 0;
 
 	public Menu() {
-		menu = String.format(
-				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les musiques de la playlist ",
-				listPlaylist.get(0).getMusiquePlaying());
+		
 		affichageMenu();
 
 	}
 
 
 	public void affichageMenu() {
+		menu = String.format(
+				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les musiques de la playlist ",
+				listPlaylist.get(0).getMusiquePlaying());
+		
 		System.out.println(menu);
 		choix = scan.nextInt();
 		switch (choix) {

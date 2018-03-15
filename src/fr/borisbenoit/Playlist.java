@@ -51,8 +51,9 @@ public class Playlist {
 		if (musiquePlaying == null)
 			initMusique();
 		
-		if (rechercheMusique(musiquePlaying).hasNext())
+		if (rechercheMusique(musiquePlaying).hasNext()) {
 			this.musiquePlaying = rechercheMusique(musiquePlaying).next();
+		}
 		else
 			this.musiquePlaying = listMusique.getFirst();
 
