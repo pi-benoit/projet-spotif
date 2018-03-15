@@ -20,12 +20,10 @@ public class Main {
 		pl.addMusique(mus5);
 		pl.addMusique(mus6);
 
-		System.out.println(pl.getMusiquePlaying());
-		pl.nextMusique();
-		System.out.println(pl.getMusiquePlaying());
+
 		
-		Menu men=new Menu();
-		men.afficherListMusique();
+		new Menu();
+		
 	}
 
 }
