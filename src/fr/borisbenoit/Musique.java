@@ -20,18 +20,21 @@ public class Musique {
 	}
 
 	public void addToPlaylist(Playlist playlist) {
-		
+		playlist.addMusique(this);
 	}
 
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public Album getAlbum() {
 		return album;
 	}
+
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
