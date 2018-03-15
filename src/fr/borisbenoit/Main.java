@@ -31,22 +31,7 @@ public class Main {
 
 		pl.afficherToutesMusique();
 
-		System.out.println("*TN1");
-		pl.nextMusique();
-		System.out.println("*TN2");
-		pl.nextMusique();
-		System.out.println("*TN3");
-		pl.nextMusique();
-
-
-		System.out.println("*T1");
-		pl.previousMusique();
-		System.out.println("*T2");
-		pl.previousMusique();
-		System.out.println("*T3");
-		pl.previousMusique();
-
-//		new Menu();
+		new Menu();
 
 	}
 
