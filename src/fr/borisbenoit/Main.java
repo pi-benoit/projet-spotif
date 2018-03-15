@@ -17,7 +17,6 @@ public class Main {
 		Musique mus8 = new Musique("Hot", alb2);
 		Musique mus9 = new Musique("Freeze", alb2);
 
-		System.out.println(alb1);
 
 		Playlist pl = new Playlist("Test");
 		pl.addMusique(mus1);
@@ -30,7 +29,24 @@ public class Main {
 		pl.addMusique(mus8);
 		pl.addMusique(mus9);
 
-		new Menu();
+		pl.afficherToutesMusique();
+
+		System.out.println("*TN1");
+		pl.nextMusique();
+		System.out.println("*TN2");
+		pl.nextMusique();
+		System.out.println("*TN3");
+		pl.nextMusique();
+
+
+		System.out.println("*T1");
+		pl.previousMusique();
+		System.out.println("*T2");
+		pl.previousMusique();
+		System.out.println("*T3");
+		pl.previousMusique();
+
+//		new Menu();
 
 	}
 
