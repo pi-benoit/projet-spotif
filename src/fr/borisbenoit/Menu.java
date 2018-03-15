@@ -12,9 +12,7 @@ public class Menu {
 	private int choix = 0;
 
 	public Menu() {
-
 		affichageMenu();
-
 	}
 
 	public void affichageMenu() {
@@ -51,43 +49,34 @@ public class Menu {
 			System.out.println(musique);
 		}
 		affichageMenu();
-
 	}
 
 	private void afficherMusiques() {
-
 		listPlaylist.get(0).getMusiquePlaying();
-
 		affichageMenu();
-
 	}
 
 	private void rejouerChanson() {
 		listPlaylist.get(0).rejouerMusique();
-
 		affichageMenu();
-
 	}
 
 	private void chansonPrecedente() {
-
 		listPlaylist.get(0).previousMusique();
 		affichageMenu();
-
 	}
 
 	private void chansonSuivante() {
 		listPlaylist.get(0).nextMusique();
 		affichageMenu();
-
 	}
 
 	private void quitter() {
 		System.exit(0);
-
 	}
 
 	public static void addPlaylist(Playlist pl) {
 		listPlaylist.add(pl);
 	}
+
 }
