@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-	List<Playlist> listPlaylist = new ArrayList<>();
+	static List<Playlist> listPlaylist = new ArrayList<>();
 	private String menu = new String();
 	private Scanner scan = new Scanner(System.in);
 	private int choix = 0;
@@ -14,10 +14,11 @@ public class Menu {
 	public Menu() {
 		menu = String.format(
 				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les musiques de la playlist ",
-				"listPlaylist.get(0).getMusiquePlaying()");
+				listPlaylist.get(0).getMusiquePlaying());
 		affichageMenu();
 
 	}
+
 
 	public void affichageMenu() {
 		System.out.println(menu);
@@ -39,14 +40,14 @@ public class Menu {
 			afficherMusiques();
 			break;
 		case 6:
-			afficherListPlaylist();
+			afficherListMusique();
 			break;
 		}
 	}
 
-	public void afficherListPlaylist() {
-		for (Playlist playlist : listPlaylist) {
-			System.out.println(playlist);
+	public void afficherListMusique() {
+		for (Musique musique : listPlaylist.get(0).getListMusique()) {
+			System.out.println(musique);
 		}
 		affichageMenu();
 		
@@ -82,5 +83,9 @@ public class Menu {
 	private void quitter() {
 		System.exit(0);
 		
+	}
+	
+	public static void addPlaylist(Playlist pl) {
+		listPlaylist.add(pl);
 	}
 }

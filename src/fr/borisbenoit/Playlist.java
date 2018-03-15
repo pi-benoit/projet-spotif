@@ -1,6 +1,5 @@
 package fr.borisbenoit;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -12,13 +11,22 @@ public class Playlist {
 
 	public Playlist(String nom) {
 		this.nom = nom;
+
+		Menu.addPlaylist(this);
+
+	}
+
+	public void initMusique() {
+		this.musiquePlaying = listMusique.getFirst();
 	}
 
 	public void addMusique(Musique musique) {
-		listMusique.push(musique);
+		listMusique.addLast(musique);
 	}
 
 	public void removeMusique(Musique musique) {
+		if (musiquePlaying == null)
+			initMusique();
 
 		ListIterator<Musique> it = listMusique.listIterator();
 		while (it.hasNext()) {
@@ -28,52 +36,76 @@ public class Playlist {
 	}
 
 	public Musique getMusiquePlaying() {
-		if (musiquePlaying == null && listMusique.size() != 0)
+		if (musiquePlaying == null && listMusique.size() != 0) {
 			return listMusique.getFirst();
+		} else if (musiquePlaying != null)
+			return musiquePlaying;
 		return null;
 	}
 
 	public void rejouerMusique() {
 
 	}
+
 	public void nextMusique() {
-		Iterator<Musique> it =listMusique.iterator();
-		if(rechercheMusique(musiquePlaying).hasNext())
-			musiquePlaying=it.next();
+		if (musiquePlaying == null)
+			initMusique();
+		
+		if (rechercheMusique(musiquePlaying).hasNext())
+			this.musiquePlaying = rechercheMusique(musiquePlaying).next();
 		else
-			musiquePlaying=listMusique.getFirst();
+			this.musiquePlaying = listMusique.getFirst();
+
 	}
 
 	public void previousMusique() {
-		ListIterator<Musique> it =listMusique.listIterator();
-		if(rechercheMusique(musiquePlaying).hasPrevious())
-			musiquePlaying=it.next();
+		if (musiquePlaying == null)
+			initMusique();
+
+		if (rechercheMusique(musiquePlaying).hasPrevious()) {
+			this.musiquePlaying = rechercheMusique(musiquePlaying).previous();
+		}
 		else
-			musiquePlaying=listMusique.getLast();
+			this.musiquePlaying = listMusique.getLast();
 	}
-	
+
 	public void afficherToutesMusique() {
 		for (Musique musique : listMusique) {
 			System.out.println(musique);
 		}
 	}
+
 	public void afficherMusiquePlaying() {
+		if (musiquePlaying == null)
+			initMusique();
+
 		System.out.println(musiquePlaying);
 	}
-	
+
 	private ListIterator<Musique> rechercheMusique(Musique musique) {
-		ListIterator<Musique> it=listMusique.listIterator();
-		while (it.hasNext())
+		if (musiquePlaying == null)
+			initMusique();
+
+		ListIterator<Musique> it = listMusique.listIterator();
+		while (it.hasNext()) {
 			if (it.next().equals(musique))
 				return it;
+		}
 		return null;
-		
+
 	}
 
 	@Override
 	public String toString() {
-		return "Playlist :" + nom ;
+		return "Playlist :" + nom;
 	}
 
-	
+	public LinkedList<Musique> getListMusique() {
+		return listMusique;
+	}
+
+	public void setListMusique(LinkedList<Musique> listMusique) {
+		this.listMusique = listMusique;
+	}
+
 }
