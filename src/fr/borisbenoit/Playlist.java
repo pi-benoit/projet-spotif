@@ -8,6 +8,7 @@ public class Playlist {
 	String nom;
 	LinkedList<Musique> listMusique = new LinkedList<>();
 	Musique musiquePlaying;
+	ListIterator<Musique> it = listMusique.listIterator();
 
 	public Playlist(String nom) {
 		this.nom = nom;
@@ -51,9 +52,9 @@ public class Playlist {
 
 		if (rechercheMusique(musiquePlaying).hasNext()) {
 			this.musiquePlaying = rechercheMusique(musiquePlaying).next();
-		}
-		else
+		} else {
 			this.musiquePlaying = listMusique.getFirst();
+		}
 
 	}
 
@@ -85,10 +86,9 @@ public class Playlist {
 		if (musiquePlaying == null)
 			initMusique();
 
-		ListIterator<Musique> it = listMusique.listIterator();
-		while (it.hasNext()) {
-			if (it.next().equals(musique))
-				return it;
+		while (this.it.hasNext()) {
+			if (this.it.next().equals(musique))
+				return this.it;
 		}
 		return null;
 
