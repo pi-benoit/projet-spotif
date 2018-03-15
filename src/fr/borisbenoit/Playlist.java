@@ -33,6 +33,9 @@ public class Playlist {
 		return null;
 	}
 
+	public void rejouerMusique() {
+
+	}
 	public void nextMusique() {
 		Iterator<Musique> it =listMusique.iterator();
 		if(rechercheMusique(musiquePlaying).hasNext())
@@ -67,4 +70,10 @@ public class Playlist {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Playlist :" + nom ;
+	}
+
+	
 }
