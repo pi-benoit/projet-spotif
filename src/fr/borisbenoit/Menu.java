@@ -9,19 +9,24 @@ public class Menu {
 	static List<Playlist> listPlaylist = new ArrayList<>();
 	private String menu = new String();
 	private Scanner scan = new Scanner(System.in);
+	Playlist playlist;
 	private int choix = 0;
 
 	public Menu() {
+		this.playlist=listPlaylist.get(0);
 		affichageMenu();
 	}
 
 	public void affichageMenu() {
 		menu = String.format(
-				"Vous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist ",
-				listPlaylist.get(0).getMusiquePlaying());
+				"Playlist %s \nVous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist\n7-Playlist Suivante\n8-PlaylistPrecedente",
+				playlist.getNom(),playlist.getMusiquePlaying());
 
+		choix=-1;
 		System.out.println(menu);
-		choix = scan.nextInt();
+		while (choix<1||choix>8)
+			choix = scan.nextInt();
+		
 		switch (choix) {
 		case 1:
 			quitter();
@@ -41,34 +46,50 @@ public class Menu {
 		case 6:
 			afficherListMusique();
 			break;
+		case 7:
+			playlistSuivante();
+			break;
+		case 8:
+			playlistPrecedente();
+			break;
 		}
+		affichageMenu();
+	}
+
+	private void playlistPrecedente() {
+		if(this.playlist.getNumero()-1>=0) 
+			this.playlist=listPlaylist.get(playlist.getNumero()-1);
+		
+	}
+
+	private void playlistSuivante() {
+		if(this.playlist.getNumero()+1<listPlaylist.size()) 
+			this.playlist=listPlaylist.get(playlist.getNumero()+1);
+		
+
+		
 	}
 
 	public void afficherListMusique() {
 		for (Musique musique : listPlaylist.get(0).getListMusique()) {
 			System.out.println(musique);
 		}
-		affichageMenu();
 	}
 
 	private void afficherMusiques() {
 		listPlaylist.get(0).getMusiquePlaying();
-		affichageMenu();
 	}
 
 	private void rejouerChanson() {
 		listPlaylist.get(0).rejouerMusique();
-		affichageMenu();
 	}
 
 	private void chansonPrecedente() {
 		listPlaylist.get(0).previousMusique();
-		affichageMenu();
 	}
 
 	private void chansonSuivante() {
 		listPlaylist.get(0).nextMusique();
-		affichageMenu();
 	}
 
 	private void quitter() {

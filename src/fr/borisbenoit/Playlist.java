@@ -5,12 +5,14 @@ import java.util.ListIterator;
 
 public class Playlist {
 
+	int numero=-1;
 	String nom;
 	LinkedList<Musique> listMusique = new LinkedList<>();
 	Musique musiquePlaying;
 
 	public Playlist(String nom) {
 		this.nom = nom;
+		this.numero+=1;
 		Menu.addPlaylist(this);
 	}
 
@@ -126,4 +128,21 @@ public class Playlist {
 		this.listMusique = listMusique;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	
 }

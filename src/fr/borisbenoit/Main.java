@@ -19,15 +19,14 @@ public class Main {
 
 
 		Playlist pl = new Playlist("Test");
+		Playlist pl1=new Playlist("Test 2");
 		pl.addMusique(mus1);
 		pl.addMusique(mus2);
 		pl.addMusique(mus3);
-		pl.addMusique(mus4);
-		pl.addMusique(mus5);
-		pl.addMusique(mus6);
-		pl.addMusique(mus7);
-		pl.addMusique(mus8);
-		pl.addMusique(mus9);
+
+		pl1.addMusique(mus4);
+		pl1.addMusique(mus5);
+		pl1.addMusique(mus6);
 
 		pl.afficherToutesMusique();
 
