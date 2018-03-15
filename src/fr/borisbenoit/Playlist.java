@@ -11,9 +11,7 @@ public class Playlist {
 
 	public Playlist(String nom) {
 		this.nom = nom;
-
 		Menu.addPlaylist(this);
-
 	}
 
 	public void initMusique() {
@@ -50,7 +48,7 @@ public class Playlist {
 	public void nextMusique() {
 		if (musiquePlaying == null)
 			initMusique();
-		
+
 		if (rechercheMusique(musiquePlaying).hasNext()) {
 			this.musiquePlaying = rechercheMusique(musiquePlaying).next();
 		}
