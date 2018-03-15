@@ -1,13 +1,13 @@
 package fr.borisbenoit;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Playlist {
 
 	String nom;
-	List<Musique> listMusique = new ArrayList<>();
+	LinkedList<Musique> listMusique = new LinkedList<>();
 	Musique musiquePlaying;
 
 	public Playlist(String nom) {
@@ -15,37 +15,38 @@ public class Playlist {
 	}
 
 	public void addMusique(Musique musique) {
-		listMusique.add(musique);
+		listMusique.push(musique);
 	}
 
 	public void removeMusique(Musique musique) {
 
-		Iterator<Musique> it = listMusique.iterator();
+		ListIterator<Musique> it = listMusique.listIterator();
 		while (it.hasNext()) {
-			if (it.equals(musique))
+			if (it.next().equals(musique))
 				it.remove();
 		}
 	}
 
 	public Musique getMusiquePlaying() {
 		if (musiquePlaying == null && listMusique.size() != 0)
-			return listMusique.get(0);
+			return listMusique.getFirst();
 		return null;
 	}
 
 	public void nextMusique() {
-
-		if (rechercheMusique(musiquePlaying)+1<listMusique.size())
-			musiquePlaying=listMusique.get(rechercheMusique(musiquePlaying)+1);
+		Iterator<Musique> it =listMusique.iterator();
+		if(rechercheMusique(musiquePlaying).hasNext())
+			musiquePlaying=it.next();
 		else
-			musiquePlaying=listMusique.get(0);
+			musiquePlaying=listMusique.getFirst();
 	}
 
 	public void previousMusique() {
-		if (rechercheMusique(musiquePlaying)-1>0)
-			musiquePlaying=listMusique.get(rechercheMusique(musiquePlaying)-1);
+		ListIterator<Musique> it =listMusique.listIterator();
+		if(rechercheMusique(musiquePlaying).hasPrevious())
+			musiquePlaying=it.next();
 		else
-			musiquePlaying=listMusique.get(0);
+			musiquePlaying=listMusique.getLast();
 	}
 	
 	public void afficherToutesMusique() {
@@ -53,16 +54,16 @@ public class Playlist {
 			System.out.println(musique);
 		}
 	}
-	public void afficherMusique() {
+	public void afficherMusiquePlaying() {
 		System.out.println(musiquePlaying);
 	}
 	
-	private int rechercheMusique(Musique musique) {
-		for (int i=0;i<listMusique.size();i++) {
-			if (listMusique.get(i).equals(musique))
-				return i;
-		}
-		return 0;
+	private ListIterator<Musique> rechercheMusique(Musique musique) {
+		ListIterator<Musique> it=listMusique.listIterator();
+		while (it.hasNext())
+			if (it.next().equals(musique))
+				return it;
+		return null;
 		
 	}
 
