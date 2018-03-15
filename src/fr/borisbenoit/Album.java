@@ -1,23 +1,32 @@
 package fr.borisbenoit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Album {
 
 	private String nom;
-	private List<Musique> musique;
+	private List<Musique> musique = new ArrayList<>();
 
 	public Album(String nom) {
 		this.nom = nom;
 	}
 
 	public void addMusique(Musique mus) {
-		this.addMusique(mus);
+		if (!this.musique.contains(mus)) {
+			this.musique.add(mus);
+		} else {
+			System.err.println("Cette musique "+ mus +" appartient déjà à cet album");
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "Album [nom=" + nom + ", musique=" + musique + "]";
+		String str = "Album : "+ this.nom +"\n";
+		for(Musique mus : this.musique) {
+			str += mus;
+		}
+		return str;
 	}
 
 	@Override
