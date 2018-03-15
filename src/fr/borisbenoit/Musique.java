@@ -25,7 +25,8 @@ public class Musique {
 
 	@Override
 	public String toString() {
-		return "Musique [nom=" + nom + ", album=" + album + ", playlist=" + playlist + "]";
+		String str = "Musique : "+ this.nom +"\n";
+		return str;
 	}
 
 	@Override
