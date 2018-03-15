@@ -7,6 +7,10 @@ public class Album {
 	private String nom;
 	private List<Musique> musique;
 
+	public Album(String nom) {
+		this.nom = nom;
+	}
+
 	public void addMusique(Musique mus) {
 		this.addMusique(mus);
 	}
