@@ -13,12 +13,13 @@ public class Main {
 		Musique mus6 = new Musique("Ending", alb1);
 
 		Playlist pl = new Playlist("Test");
+		Playlist pl1=new Playlist("Test 2");
 		pl.addMusique(mus1);
 		pl.addMusique(mus2);
 		pl.addMusique(mus3);
-		pl.addMusique(mus4);
-		pl.addMusique(mus5);
-		pl.addMusique(mus6);
+		pl1.addMusique(mus4);
+		pl1.addMusique(mus5);
+		pl1.addMusique(mus6);
 
 
 		
