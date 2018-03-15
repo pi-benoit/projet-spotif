@@ -21,7 +21,7 @@ public class Playlist {
 	}
 
 	public void addMusique(Musique musique) {
-		listMusique.addLast(musique);
+		listMusique.add(musique);
 	}
 
 	public void removeMusique(Musique musique) {
@@ -48,14 +48,15 @@ public class Playlist {
 	}
 
 	public void nextMusique() {
+
 		if (musiquePlaying == null)
 			initMusique();
-		
-		if (rechercheMusique(musiquePlaying).hasNext()) {
-			this.musiquePlaying = rechercheMusique(musiquePlaying).next();
-		}
-		else
+
+		if (rechercheMusiqueNext(musiquePlaying).hasNext()) {
+			this.musiquePlaying =rechercheMusiqueNext(musiquePlaying).next() ;
+		} else {
 			this.musiquePlaying = listMusique.getFirst();
+		}
 
 	}
 
@@ -63,12 +64,13 @@ public class Playlist {
 		if (musiquePlaying == null)
 			initMusique();
 
-		if (rechercheMusique(musiquePlaying).hasPrevious()) {
-			rechercheMusique(musiquePlaying).previous();
-		}
-		else
-			this.musiquePlaying = listMusique.getLast();
-	}
+				if (rechercheMusiquePrevious(musiquePlaying).hasPrevious()) {
+					this.musiquePlaying =rechercheMusiquePrevious(musiquePlaying).previous() ;
+				} else {
+					this.musiquePlaying = listMusique.getLast();
+				}
+			
+			}
 
 	public void afficherToutesMusique() {
 		for (Musique musique : listMusique) {
@@ -80,19 +82,36 @@ public class Playlist {
 		if (musiquePlaying == null)
 			initMusique();
 
-		System.out.println(musiquePlaying);
+		System.out.println("La musique entrain d'etre joué est : " + musiquePlaying);
 	}
 
-	private ListIterator<Musique> rechercheMusique(Musique musique) {
+	private ListIterator<Musique> rechercheMusiqueNext(Musique musique) {
 		if (musiquePlaying == null)
 			initMusique();
 
 		ListIterator<Musique> it = listMusique.listIterator();
+	
 		while (it.hasNext()) {
 			if (it.next().equals(musique))
 				return it;
 		}
 		return null;
+
+	}
+
+	private ListIterator<Musique> rechercheMusiquePrevious(Musique musique) {
+		
+		if (musiquePlaying == null)
+			initMusique();
+
+		ListIterator<Musique> it = listMusique.listIterator(listMusique.size());
+		
+		while (it.hasPrevious()) {
+			if (it.previous().equals(musique))
+				return it;
+		}
+		return null;
+		
 
 	}
 
