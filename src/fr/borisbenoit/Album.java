@@ -7,9 +7,14 @@ public class Album {
 
 	private String nom;
 	private List<Musique> musique = new ArrayList<>();
+	public static ListAlbums listAlbums;
 
 	public Album(String nom) {
 		this.nom = nom;
+		if (listAlbums == null) {
+			listAlbums = new ListAlbums();
+		}
+		listAlbums.addAlbum(this);
 	}
 
 	public void addMusique(Musique mus) {
