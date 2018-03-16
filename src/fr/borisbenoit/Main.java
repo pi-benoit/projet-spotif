@@ -28,7 +28,7 @@ public class Main {
 		pl1.addMusique(mus5);
 		pl1.addMusique(mus6);
 
-		pl.afficherToutesMusique();
+//		pl.afficherToutesMusique();
 
 		new Menu();
 

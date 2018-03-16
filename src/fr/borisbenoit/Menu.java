@@ -79,7 +79,7 @@ public class Menu {
 	}
 
 	public void afficherListMusique() {
-		for (Musique musique : listPlaylist.get(0).getListMusique()) {
+		for (Musique musique : this.playlist.getListMusique()) {
 			System.out.println(musique);
 		}
 	}
@@ -94,15 +94,15 @@ public class Menu {
 
 
 	private void rejouerChanson() {
-		listPlaylist.get(0).rejouerMusique();
+		this.playlist.rejouerMusique();
 	}
 
 	private void chansonPrecedente() {
-		listPlaylist.get(0).previousMusique();
+		this.playlist.previousMusique();
 	}
 
 	private void chansonSuivante() {
-		listPlaylist.get(0).nextMusique();
+		this.playlist.nextMusique();
 	}
 
 	private void quitter() {
