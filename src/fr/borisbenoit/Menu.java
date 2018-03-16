@@ -13,10 +13,8 @@ public class Menu {
 	private int choix = 0;
 
 	public Menu() {
-
 		this.playlist=listPlaylist.get(0);
 		affichageMenu();
-
 	}
 
 	public void affichageMenu() {
@@ -76,42 +74,35 @@ public class Menu {
 		for (Musique musique : listPlaylist.get(0).getListMusique()) {
 			System.out.println(musique);
 		}
-
 	}
+
 
 	private void afficherPlaylist() {
 
 		for (Playlist playlist : listPlaylist) {
 			System.out.println(playlist);
 		}
-
 	}
+
 
 	private void rejouerChanson() {
 		listPlaylist.get(0).rejouerMusique();
-
-
 	}
 
 	private void chansonPrecedente() {
-
 		listPlaylist.get(0).previousMusique();
-
-
 	}
 
 	private void chansonSuivante() {
 		listPlaylist.get(0).nextMusique();
-
-
 	}
 
 	private void quitter() {
 		System.exit(0);
-
 	}
 
 	public static void addPlaylist(Playlist pl) {
 		listPlaylist.add(pl);
 	}
+
 }

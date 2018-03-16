@@ -16,7 +16,6 @@ public class Playlist {
 		compteur++;
 		numero=compteur;
 		Menu.addPlaylist(this);
-
 	}
 
 	public void initMusique() {
@@ -103,7 +102,7 @@ public class Playlist {
 	}
 
 	private ListIterator<Musique> rechercheMusiquePrevious(Musique musique) {
-		
+
 		if (musiquePlaying == null)
 			initMusique();
 
