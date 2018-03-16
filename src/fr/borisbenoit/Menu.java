@@ -19,12 +19,12 @@ public class Menu {
 
 	public void affichageMenu() {
 		menu = String.format(
-				"Le nom de la Playlist courante est %s \nVous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist\n7-Playlist Suivante\n8-PlaylistPrecedente",
+				"Le nom de la Playlist courante est %s \nVous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist\n7-Playlist Suivante\n8-PlaylistPrecedente\n9-Afficher la liste des albums",
 				playlist.getNom(),playlist.getMusiquePlaying());
 
 		choix=-1;
 		System.out.println(menu);
-		while (choix<1||choix>8)
+		while (choix<1||choix>9)
 			choix = scan.nextInt();
 		
 		switch (choix) {
@@ -52,8 +52,16 @@ public class Menu {
 		case 8:
 			playlistPrecedente();
 			break;
+		case 9:
+			afficherListAlbum();
+			break;
 		}
 		affichageMenu();
+	}
+
+	private void afficherListAlbum() {
+		System.out.println(this.playlist.getMusiquePlaying().getAlbum().listAlbums);
+		
 	}
 
 	private void playlistPrecedente() {
