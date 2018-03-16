@@ -21,9 +21,9 @@ public class ListAlbums {
 
 	@Override
 	public String toString() {
-		String str ="Liste des albums =\n";
+		String str ="Liste des albums\n";
 		for(Album name : this.lesAlbums) {
-			str += name.getNom() + "\n";
+			str += "- "+ name.getNom() + "\n";
 		}
 		return str;
 	}
