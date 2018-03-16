@@ -22,8 +22,8 @@ public class Main {
 		pl1.addMusique(mus6);
 
 
-		
 		new Menu();
+	
 		
 	}
 

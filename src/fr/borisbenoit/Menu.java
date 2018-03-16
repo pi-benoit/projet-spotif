@@ -21,7 +21,7 @@ public class Menu {
 
 	public void affichageMenu() {
 		menu = String.format(
-				"Playlist %s \nVous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist\n7-Playlist Suivante\n8-PlaylistPrecedente",
+				"Le nom de la Playlist courante est %s \nVous ecoutez %s \n1-Quitter\n2-Chanson suivante\n3-Chanson Précédente\n4-Rejouer chason\n5-Afficher les differentes playlist\n6-Afficher les musiques de la playlist\n7-Playlist Suivante\n8-PlaylistPrecedente",
 				playlist.getNom(),playlist.getMusiquePlaying());
 
 		choix=-1;
@@ -43,7 +43,7 @@ public class Menu {
 			rejouerChanson();
 			break;
 		case 5:
-			afficherMusiques();
+			afficherPlaylist();
 			break;
 		case 6:
 			afficherListMusique();
@@ -79,9 +79,11 @@ public class Menu {
 
 	}
 
-	private void afficherMusiques() {
+	private void afficherPlaylist() {
 
-		listPlaylist.get(0).getMusiquePlaying();
+		for (Playlist playlist : listPlaylist) {
+			System.out.println(playlist);
+		}
 
 	}
 
